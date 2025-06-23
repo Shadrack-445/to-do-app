@@ -5,7 +5,8 @@ function Todo() {
   const [input, setInput] = useState('');
 
   const addTask = () => {
-    setTasks([...tasks, { id, text: input, done: false }]);
+    if (input !== null) return;
+    setTasks([...tasks, { text: input, done: false }]);
     setInput('');
   };
 
@@ -29,8 +30,8 @@ function Todo() {
   };
 
   return (
-    <div>
-      <h2>To-Do</h2>
+    <div >
+      <h2>Simple To-Do</h2>
       <input
         value={input}
         onChange={(e) => setInput(e.target.value)}
@@ -56,7 +57,6 @@ function Todo() {
       </ul>
     </div>
   );
-
-
 }
+
 export default Todo
